@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Card from '../Card.svelte';
+	import Loading from './Loading.svelte';
 	import travelTimesState from '$lib/state/travelTimes.svelte';
 	import Church from './places/Church.svelte';
 	import FarmersMarket from './places/FarmersMarket.svelte';
@@ -13,7 +14,7 @@
 {#if travelTimesState.status !== 'unset'}
 	<Card title="Travel times">
 		{#if travelTimesState.status === 'loading'}
-			<p>Loading!</p>
+			<Loading />
 		{:else if travelTimesState.status === 'success'}
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 				<Work {...travelTimesState.result.work} />
