@@ -1,9 +1,9 @@
 import { json, type RequestHandler } from '@sveltejs/kit';
 
-import type { DistancesResult } from '$lib/types';
+import type { TravelTimes } from '$lib/types';
 
 export const GET: RequestHandler = () => {
-	const result: DistancesResult = {
+	const result: TravelTimes = {
 		work: {
 			walk: {
 				timeMinutes: 18,

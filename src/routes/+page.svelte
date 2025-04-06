@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Address from '$lib/components/address/Address.svelte';
-	import Destinations from '$lib/components/destinations/Destinations.svelte';
+	import Address from '$lib/components/address';
+	import TravelTimes from '$lib/components/travelTimes/index.js';
 	import Neighborhoods from '$lib/components/Neighborhoods.svelte';
-	import OtherCriteria from '$lib/components/criteria/OtherCriteria.svelte';
+	import OtherCriteria from '$lib/components/criteria';
 	let { data } = $props();
 </script>
 
@@ -11,7 +11,7 @@
 		<h1 class="mb-6 text-center text-3xl font-bold md:text-left">NYC apartment distances</h1>
 		<Neighborhoods />
 		<Address />
-		<Destinations {...data.distances} />
+		<TravelTimes {...data.travelTimes} />
 		<OtherCriteria />
 	</div>
 </div>
