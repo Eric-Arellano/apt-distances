@@ -1,8 +1,8 @@
 <script lang="ts">
 	import DestinationCard from '../DestinationCard.svelte';
-	import type { DistancesResult, GoalStatus } from '$lib/types';
+	import type { TravelTimes, GoalStatus } from '$lib/types';
 
-	let { walk, bike }: DistancesResult['work'] = $props();
+	let { walk, bike }: TravelTimes['work'] = $props();
 
 	const idealMinutes = 10;
 	const maxMinutes = 15;

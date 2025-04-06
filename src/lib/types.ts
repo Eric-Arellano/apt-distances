@@ -13,7 +13,7 @@ interface Transit {
 	summary: string;
 }
 
-export interface DistancesResult {
+export interface TravelTimes {
 	work: {
 		walk: Walk;
 		bike: Bike;
