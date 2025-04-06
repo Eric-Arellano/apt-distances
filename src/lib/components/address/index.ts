@@ -1,3 +1,3 @@
-import Address from './Address.svelte';
+import Address from './AddressCard.svelte';
 
 export default Address;
