@@ -12,22 +12,19 @@
 </script>
 
 <div
-	class="mb-4 rounded-lg border-l-4 bg-gray-50 p-4 shadow-md transition-shadow hover:shadow-lg {goalStatus ===
-	'met'
-		? 'border-green-500'
+	class="mb-4 rounded-lg border-2 bg-gray-50 p-4 {goalStatus === 'met'
+		? 'border-green-500 bg-green-50'
 		: goalStatus === 'partial'
-			? 'border-yellow-500'
-			: 'border-red-500'}"
+			? 'border-yellow-500 bg-yellow-50'
+			: 'border-red-500 bg-red-50'}"
 >
-	<h2 class="mb-2 text-xl font-bold">{title}</h2>
-	<p class="mb-3 text-sm text-gray-700 italic">{goal}</p>
+	<h2 class="mb-2 text-xl font-semibold">{title}</h2>
+	<p class="mb-3 text-base text-gray-700 italic">{goal}</p>
 
-	<div class="space-y-2">
+	<div class="space-y-2 text-base">
 		{#each routes as route (route)}
-			<div class="flex items-start">
-				<div class="w-full rounded bg-white p-2 shadow-sm">
-					{route}
-				</div>
+			<div class="rounded-md bg-white p-2 shadow-sm">
+				{route}
 			</div>
 		{/each}
 	</div>
