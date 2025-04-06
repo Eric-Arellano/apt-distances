@@ -50,7 +50,7 @@ export const GET: RequestHandler = () => {
 		},
 		fractal: {
 			transit: {
-				timeMinutes: 14,
+				timeMinutes: 42,
 				summary: 'L'
 			}
 		},

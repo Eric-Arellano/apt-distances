@@ -18,7 +18,7 @@
 			? 'border-yellow-500 bg-yellow-50'
 			: 'border-red-500 bg-red-50'}"
 >
-	<h2 class="mb-2 text-xl font-semibold">{title}</h2>
+	<h3 class="mb-2 text-lg font-semibold">{title}</h3>
 	<p class="mb-3 text-base text-gray-700 italic">{goal}</p>
 
 	<div class="space-y-2 text-base">
