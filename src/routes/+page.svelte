@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Address from '$lib/components/Address.svelte';
+	import Address from '$lib/components/address/Address.svelte';
 	import Destinations from '$lib/components/destinations/Destinations.svelte';
 	import Neighborhoods from '$lib/components/Neighborhoods.svelte';
 	import OtherCriteria from '$lib/components/criteria/OtherCriteria.svelte';
