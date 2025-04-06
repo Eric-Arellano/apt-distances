@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DestinationCard from '$lib/components/DestinationCard.svelte';
+	import DestinationCard from '../DestinationCard.svelte';
 	import type { DistancesResult, GoalStatus } from '$lib/types';
 
 	let { walk, bike }: DistancesResult['work'] = $props();
