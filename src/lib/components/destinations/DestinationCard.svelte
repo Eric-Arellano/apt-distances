@@ -12,7 +12,7 @@
 </script>
 
 <div
-	class="mb-4 rounded-lg border-2 bg-gray-50 p-4 {goalStatus === 'met'
+	class="rounded-lg border-2 bg-gray-50 p-4 {goalStatus === 'met'
 		? 'border-green-500 bg-green-50'
 		: goalStatus === 'partial'
 			? 'border-yellow-500 bg-yellow-50'

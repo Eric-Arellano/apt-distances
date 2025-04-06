@@ -11,10 +11,12 @@
 	let distances: DistancesResult = $props();
 </script>
 
-<Work {...distances.work} />
-<Partner {...distances.partner} />
-<SubwayStop {...distances.subwayStop} />
-<Park {...distances.park} />
-<FarmersMarket {...distances.farmersMarket} />
-<Fractal {...distances.fractal} />
-<Church {...distances.church} />
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+	<Work {...distances.work} />
+	<Partner {...distances.partner} />
+	<SubwayStop {...distances.subwayStop} />
+	<Park {...distances.park} />
+	<FarmersMarket {...distances.farmersMarket} />
+	<Fractal {...distances.fractal} />
+	<Church {...distances.church} />
+</div>
