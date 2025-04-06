@@ -12,7 +12,7 @@
 </script>
 
 <Card title="Candidate neighborhoods">
-	<div class="max-w-2xs">
+	<div class="max-w-3xs">
 		<ul class="grid list-none grid-cols-2 gap-y-1">
 			{#each neighborhoods as neighborhood (neighborhood)}
 				<li class="flex items-start">

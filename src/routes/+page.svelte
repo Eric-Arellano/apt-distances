@@ -2,6 +2,7 @@
 	import Address from '$lib/components/Address.svelte';
 	import Destinations from '$lib/components/destinations/Destinations.svelte';
 	import Neighborhoods from '$lib/components/Neighborhoods.svelte';
+	import OtherCriteria from '$lib/components/criteria/OtherCriteria.svelte';
 	let { data } = $props();
 </script>
 
@@ -11,5 +12,6 @@
 		<Neighborhoods />
 		<Address />
 		<Destinations {...data.distances} />
+		<OtherCriteria />
 	</div>
 </div>
