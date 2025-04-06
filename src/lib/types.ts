@@ -47,3 +47,5 @@ export interface DistancesResult {
 		transit: Transit;
 	};
 }
+
+export type GoalStatus = 'met' | 'partial' | 'unmet';

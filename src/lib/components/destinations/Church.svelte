@@ -1,12 +1,19 @@
 <script lang="ts">
 	import DestinationCard from '$lib/components/DestinationCard.svelte';
-	import type { DistancesResult } from '$lib/types';
+	import type { DistancesResult, GoalStatus } from '$lib/types';
 
 	let { transit }: DistancesResult['church'] = $props();
+
+	const maxMinutes = 30;
+
+	function goalStatus(): GoalStatus {
+		return transit.timeMinutes <= maxMinutes ? 'met' : 'unmet';
+	}
 </script>
 
 <DestinationCard
 	title="Church ⛪️ "
-	goal="Ideally within 30 minutes (low priority)"
+	goal="Ideally within {maxMinutes} minutes (low priority)"
 	routes={[`🚇 ${transit.timeMinutes} minutes on the ${transit.summary}`]}
+	goalStatus={goalStatus()}
 />
