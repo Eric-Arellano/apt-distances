@@ -1,9 +1,18 @@
 <script lang="ts">
-	import travelTimesState from '$lib/state/travelTimes.svelte';
+	import travelTimesRequest, { getTravelTimes } from '$lib/state/travelTimes.svelte';
 	import Card from '../Card.svelte';
 	import { isValidAddress } from './addressUtils.js';
 
 	let address = $state('');
+	let isRequestInFlight = $state(false);
+
+	function handleClick() {
+		if (isRequestInFlight) return;
+		isRequestInFlight = true;
+		travelTimesRequest.task = getTravelTimes().finally(() => {
+			isRequestInFlight = false;
+		});
+	}
 </script>
 
 <Card title="Street address">
@@ -18,7 +27,8 @@
 		<div>
 			<button
 				class="w-full cursor-pointer rounded-md bg-blue-600 px-4 py-2 font-medium text-white shadow-sm hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:bg-blue-400 disabled:opacity-50 disabled:hover:bg-blue-400 sm:w-auto"
-				disabled={!isValidAddress(address) || travelTimesState.status === 'loading'}
+				disabled={!isValidAddress(address) || isRequestInFlight}
+				onclick={handleClick}
 			>
 				Calculate travel times
 			</button>

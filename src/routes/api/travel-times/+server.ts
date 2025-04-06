@@ -2,7 +2,13 @@ import { json, type RequestHandler } from '@sveltejs/kit';
 
 import type { TravelTimes } from '$lib/types';
 
-export const GET: RequestHandler = () => {
+function sleep(ms: number) {
+	return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export const GET: RequestHandler = async () => {
+	// Simulate a slow response
+	await sleep(300);
 	const result: TravelTimes = {
 		work: {
 			walk: {
