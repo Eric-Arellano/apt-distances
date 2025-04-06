@@ -3,17 +3,17 @@
 	import Loading from './Loading.svelte';
 	import Error from './Error.svelte';
 	import Success from './Success.svelte';
-	import travelTimesState from '$lib/state/travelTimes.svelte';
+	import travelTimesRequest from '$lib/state/travelTimes.svelte';
 </script>
 
-{#if travelTimesState.status !== 'unset'}
+{#if travelTimesRequest.task}
 	<Card title="Travel times">
-		{#if travelTimesState.status === 'loading'}
+		{#await travelTimesRequest.task}
 			<Loading />
-		{:else if travelTimesState.status === 'success'}
-			<Success {...travelTimesState.result} />
-		{:else}
-			<Error error={travelTimesState.error} />
-		{/if}
+		{:then result}
+			<Success {...result} />
+		{:catch error}
+			<Error error={error.message} />
+		{/await}
 	</Card>
 {/if}

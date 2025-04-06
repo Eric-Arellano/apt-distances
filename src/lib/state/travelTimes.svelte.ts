@@ -1,5 +1,10 @@
-import type { TravelTimesState } from '$lib/types';
+import type { TravelTimes, TravelTimesRequest } from '$lib/types';
 
-const travelTimesState: TravelTimesState = $state({ status: 'loading' });
+const travelTimesRequest: TravelTimesRequest = $state({ task: null });
 
-export default travelTimesState;
+export async function getTravelTimes(): Promise<TravelTimes> {
+	const res = await fetch('/api/travel-times');
+	return res.json() as Promise<TravelTimes>;
+}
+
+export default travelTimesRequest;

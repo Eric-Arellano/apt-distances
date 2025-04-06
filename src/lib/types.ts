@@ -48,20 +48,6 @@ export interface TravelTimes {
 	};
 }
 
-export type TravelTimesState =
-	| {
-			status: 'unset';
-	  }
-	| {
-			status: 'loading';
-	  }
-	| {
-			status: 'success';
-			result: TravelTimes;
-	  }
-	| {
-			status: 'error';
-			error: string;
-	  };
+export type TravelTimesRequest = { task: Promise<TravelTimes> | null };
 
 export type GoalStatus = 'met' | 'partial' | 'unmet';
