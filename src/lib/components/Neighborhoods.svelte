@@ -13,12 +13,9 @@
 
 <Card title="Candidate neighborhoods">
 	<div class="max-w-3xs">
-		<ul class="grid list-none grid-cols-2 gap-y-1">
+		<ul class="grid list-disc grid-cols-2 gap-y-1 pl-5">
 			{#each neighborhoods as neighborhood (neighborhood)}
-				<li class="flex items-start">
-					<span class="mr-1.5 text-gray-600">•</span>
-					<span class="text-gray-800">{neighborhood}</span>
-				</li>
+				<li>{neighborhood}</li>
 			{/each}
 		</ul>
 	</div>
