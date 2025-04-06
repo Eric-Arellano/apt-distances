@@ -9,10 +9,10 @@
 	];
 </script>
 
-<div class="mb-4">
-	<h2 class="mb-2 text-xl font-medium font-semibold text-gray-900">Candidate Neighborhoods</h2>
+<div class="mb-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+	<h2 class="mb-2 text-xl font-medium font-semibold text-gray-900">Candidate neighborhoods</h2>
 
-	<div class="max-w-3xs">
+	<div class="max-w-2xs">
 		<ul class="grid list-none grid-cols-2 gap-y-1">
 			{#each neighborhoods as neighborhood (neighborhood)}
 				<li class="flex items-start">
