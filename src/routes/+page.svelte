@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Address from '$lib/components/address';
+	import AddressCard from '$lib/components/address';
 	import TravelTimes from '$lib/components/travelTimes/index.js';
 	import Neighborhoods from '$lib/components/Neighborhoods.svelte';
 	import OtherCriteria from '$lib/components/criteria';
@@ -9,7 +9,7 @@
 	<div class="container mx-auto max-w-6xl px-4">
 		<h1 class="mb-6 text-center text-3xl font-bold md:text-left">NYC apartment travel times</h1>
 		<Neighborhoods />
-		<Address />
+		<AddressCard />
 		<TravelTimes />
 		<OtherCriteria />
 	</div>
