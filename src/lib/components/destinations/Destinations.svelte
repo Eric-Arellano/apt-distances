@@ -11,12 +11,15 @@
 	let distances: DistancesResult = $props();
 </script>
 
-<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-	<Work {...distances.work} />
-	<Partner {...distances.partner} />
-	<SubwayStop {...distances.subwayStop} />
-	<Park {...distances.park} />
-	<FarmersMarket {...distances.farmersMarket} />
-	<Fractal {...distances.fractal} />
-	<Church {...distances.church} />
+<div class="mb-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+	<h2 class="mb-2 text-xl font-medium font-semibold text-gray-900">Travel times</h2>
+	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+		<Work {...distances.work} />
+		<Partner {...distances.partner} />
+		<SubwayStop {...distances.subwayStop} />
+		<Park {...distances.park} />
+		<FarmersMarket {...distances.farmersMarket} />
+		<Fractal {...distances.fractal} />
+		<Church {...distances.church} />
+	</div>
 </div>
