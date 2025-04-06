@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Card from '../Card.svelte';
 	import type { DistancesResult } from '$lib/types';
 	import Church from './places//Church.svelte';
 	import FarmersMarket from './places/FarmersMarket.svelte';
@@ -11,8 +12,7 @@
 	let distances: DistancesResult = $props();
 </script>
 
-<div class="mb-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-	<h2 class="mb-2 text-xl font-medium font-semibold text-gray-900">Travel times</h2>
+<Card title="Travel times">
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 		<Work {...distances.work} />
 		<Partner {...distances.partner} />
@@ -22,4 +22,4 @@
 		<Fractal {...distances.fractal} />
 		<Church {...distances.church} />
 	</div>
-</div>
+</Card>

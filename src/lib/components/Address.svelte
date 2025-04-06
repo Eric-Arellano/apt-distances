@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Card from './Card.svelte';
 </script>
 
-<div class="mb-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-	<h2 class="mb-2 text-xl font-medium font-semibold text-gray-900">Street address</h2>
+<Card title="Street address">
 	<div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
 		<div class="flex-grow">
 			<input
@@ -18,4 +18,4 @@
 			</button>
 		</div>
 	</div>
-</div>
+</Card>

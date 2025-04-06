@@ -1,4 +1,6 @@
 <script>
+	import Card from './Card.svelte';
+
 	const neighborhoods = [
 		'Flatiron',
 		'Hudson Yards',
@@ -9,9 +11,7 @@
 	];
 </script>
 
-<div class="mb-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-	<h2 class="mb-2 text-xl font-medium font-semibold text-gray-900">Candidate neighborhoods</h2>
-
+<Card title="Candidate neighborhoods">
 	<div class="max-w-2xs">
 		<ul class="grid list-none grid-cols-2 gap-y-1">
 			{#each neighborhoods as neighborhood (neighborhood)}
@@ -22,4 +22,4 @@
 			{/each}
 		</ul>
 	</div>
-</div>
+</Card>
