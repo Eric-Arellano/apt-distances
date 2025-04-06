@@ -1,3 +1,5 @@
-import type { TravelTimesState } from "$lib/types";
+import type { TravelTimesState } from '$lib/types';
 
-export const travelTimesState: TravelTimesState = $state({status: 'unset'});
+const travelTimesState: TravelTimesState = $state({ status: 'unset' });
+
+export default travelTimesState;
