@@ -76,12 +76,15 @@ export async function computeTransitRoute(options: {
 	}
 	const leg = route.legs[0];
 
-	const steps = leg.steps
-		?.map((step) => step.transitDetails?.transitLine?.nameShort)
+	const summary = leg
+		.steps!.map((step) => {
+			const name = step.transitDetails?.transitLine?.nameShort;
+			return name?.replace(' Line', '').replace(' Train', '');
+		})
 		.filter((name) => name !== null && name !== undefined)
-		.map((name) => name.replace(' Line', '').replace(' Train', ''));
+		.join(' -> ');
 	return {
 		timeMinutes: secondsStringToMinutes(route.duration!.seconds as string),
-		summary: steps?.join(' -> ') ?? 'unknown'
+		summary
 	};
 }
