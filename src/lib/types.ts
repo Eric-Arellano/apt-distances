@@ -1,50 +1,50 @@
-interface Walk {
+export interface WalkRoute {
 	timeMinutes: number;
 	distanceMiles: number;
 }
 
-interface Bike {
+export interface BikeRoute {
 	timeMinutes: number;
 	distanceMiles: number;
 }
 
-interface Transit {
+export interface TransitRoute {
 	timeMinutes: number;
 	summary: string;
 }
 
 export interface TravelTimes {
 	work: {
-		walk: Walk;
-		bike: Bike;
+		walk: WalkRoute;
+		bike: BikeRoute;
 	};
 	partner: {
-		transit: Transit;
+		transit: TransitRoute;
 	};
 	subwayStop: {
 		closest: {
 			name: string;
 			lines: string[];
 		};
-		walk: Walk;
+		walk: WalkRoute;
 	};
 	park: {
 		closest: {
 			name: string;
 		};
-		walk: Walk;
+		walk: WalkRoute;
 	};
 	farmersMarket: {
 		closest: {
 			name: string;
 		};
-		walk: Walk;
+		walk: WalkRoute;
 	};
 	fractal: {
-		transit: Transit;
+		transit: TransitRoute;
 	};
 	church: {
-		transit: Transit;
+		transit: TransitRoute;
 	};
 }
 
