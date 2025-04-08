@@ -1,11 +1,8 @@
 import { RoutesClient } from '@googlemaps/routing';
 
-import type { ActiveTransportRoute } from '$lib/types';
+import type { ActiveTransportRoute, TransitRoute } from '$lib/types';
 
-const API_KEY = process.env['GOOGLE_MAPS_TOKEN'];
-delete process.env['GOOGLE_MAPS_TOKEN'];
-
-const ROUTES_CLIENT = new RoutesClient({ apiKey: API_KEY });
+const ROUTES_CLIENT = new RoutesClient({ apiKey: process.env['GOOGLE_MAPS_TOKEN'] });
 
 function secondsStringToMinutes(seconds: string): number {
 	return Math.round(Number(seconds) / 60);
@@ -15,7 +12,7 @@ function metersToMi(meters: number): number {
 	return Math.round(meters * 0.0006213712 * 10) / 10;
 }
 
-async function computeActiveTransitRoute(options: {
+export async function computeActiveTransportRoute(options: {
 	origin: string;
 	dest: string;
 	mode: 'WALK' | 'BICYCLE';
@@ -47,27 +44,44 @@ async function computeActiveTransitRoute(options: {
 	};
 }
 
-type EmptyRecord = Record<string, never>;
-type ComputeRoutesResult<W extends boolean, B extends boolean> = (W extends true
-	? { walk: ActiveTransportRoute }
-	: EmptyRecord) &
-	(B extends true ? { bike: ActiveTransportRoute } : EmptyRecord);
-
-export async function computeRoutes<W extends boolean, B extends boolean>(options: {
+export async function computeTransitRoute(options: {
 	origin: string;
 	dest: string;
-	walk: W;
-	bike: B;
-}): Promise<ComputeRoutesResult<W, B>> {
-	const { origin, dest, walk, bike } = options;
-	const result = {} as ComputeRoutesResult<W, B>;
-	if (walk) {
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		(result as any).walk = await computeActiveTransitRoute({ origin, dest, mode: 'WALK' });
+}): Promise<TransitRoute> {
+	const { origin, dest } = options;
+	const response = await ROUTES_CLIENT.computeRoutes(
+		{
+			origin: { address: origin },
+			destination: { address: dest },
+			travelMode: 'TRANSIT'
+		},
+		{
+			otherArgs: {
+				headers: {
+					'Content-Type': 'application/json',
+					'X-Goog-FieldMask':
+						'routes.duration,routes.description,routes.legs.steps.transitDetails.transitLine.nameShort'
+				}
+			}
+		}
+	);
+	const routes = response[0].routes;
+	if (!routes || routes.length !== 1) {
+		throw new Error(`Unexpected routes in response: ${routes}`);
 	}
-	if (bike) {
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		(result as any).bike = await computeActiveTransitRoute({ origin, dest, mode: 'BICYCLE' });
+	const route = routes[0];
+
+	if (!route.legs || route.legs.length !== 1) {
+		throw new Error(`Unexpected legs in route: ${route.legs}`);
 	}
-	return result;
+	const leg = route.legs[0];
+
+	const steps = leg.steps
+		?.map((step) => step.transitDetails?.transitLine?.nameShort)
+		.filter((name) => name !== null && name !== undefined)
+		.map((name) => name.replace(' Line', '').replace(' Train', ''));
+	return {
+		timeMinutes: secondsStringToMinutes(route.duration!.seconds as string),
+		summary: steps?.join(' -> ') ?? 'unknown'
+	};
 }
