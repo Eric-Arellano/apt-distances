@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
 	import authState from '$lib/state/auth.svelte';
 
 	let password = '';
