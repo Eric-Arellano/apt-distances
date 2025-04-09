@@ -1,9 +1,9 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { DateTime } from 'luxon';
 
-import { DayOfWeek, type TargetDate, getNextDayTime } from './departureTime';
+import { DayOfWeek, type TargetDate, getNextDateTime } from './departureTime';
 
-describe('getNextDayTime', () => {
+describe('getNextDateTime', () => {
 	beforeEach(() => {
 		vi.spyOn(DateTime, 'now').mockImplementation(
 			// April 11, 2023 was a Tuesday
@@ -22,7 +22,7 @@ describe('getNextDayTime', () => {
 			minute: 30
 		};
 		const invalidFromDate = DateTime.now().setZone('Europe/London') as DateTime<true>;
-		expect(() => getNextDayTime(target, invalidFromDate)).toThrow(
+		expect(() => getNextDateTime(target, invalidFromDate)).toThrow(
 			'Invalid timezone for input date'
 		);
 	});
@@ -33,7 +33,7 @@ describe('getNextDayTime', () => {
 			hour: 15,
 			minute: 30
 		};
-		const result = getNextDayTime(target);
+		const result = getNextDateTime(target);
 		expect(result.weekday).toBe(DayOfWeek.Wednesday);
 		expect(result.hour).toBe(15);
 		expect(result.minute).toBe(30);
@@ -47,7 +47,7 @@ describe('getNextDayTime', () => {
 			hour: 10,
 			minute: 0
 		};
-		const result = getNextDayTime(target);
+		const result = getNextDateTime(target);
 		expect(result.weekday).toBe(DayOfWeek.Monday);
 		expect(result.hour).toBe(10);
 		expect(result.minute).toBe(0);
@@ -60,7 +60,7 @@ describe('getNextDayTime', () => {
 			hour: 9,
 			minute: 0
 		};
-		const result = getNextDayTime(target);
+		const result = getNextDateTime(target);
 		expect(result.weekday).toBe(DayOfWeek.Tuesday);
 		expect(result.hour).toBe(9);
 		expect(result.minute).toBe(0);
@@ -77,7 +77,7 @@ describe('getNextDayTime', () => {
 			hour: 14,
 			minute: 30
 		};
-		const result = getNextDayTime(target, beforeDST);
+		const result = getNextDateTime(target, beforeDST);
 		expect(result.weekday).toBe(DayOfWeek.Monday);
 		expect(result.hour).toBe(14);
 		expect(result.minute).toBe(30);

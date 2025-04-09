@@ -1,8 +1,7 @@
 import { RoutesClient } from '@googlemaps/routing';
 
 import type { ActiveTransportRoute, TransitRoute } from '$lib/types';
-import { getNextDayTime, type TargetDate } from './departureTime';
-import { DateTime } from 'luxon';
+import { getNextDateTime, type TargetDate } from './departureTime';
 
 const ROUTES_CLIENT = new RoutesClient({ apiKey: process.env['GOOGLE_MAPS_TOKEN'] });
 
@@ -52,7 +51,7 @@ export async function computeTransitRoute(options: {
 	targetDeparture: TargetDate;
 }): Promise<TransitRoute> {
 	const { origin, dest, targetDeparture } = options;
-	const actualDeparture = getNextDayTime(targetDeparture);
+	const actualDeparture = getNextDateTime(targetDeparture);
 	const response = await ROUTES_CLIENT.computeRoutes(
 		{
 			origin: { address: origin },

@@ -18,7 +18,7 @@ export interface TargetDate {
 	minute: number;
 }
 
-export function getNextDayTime(
+export function getNextDateTime(
 	target: TargetDate,
 	fromDate: DateTime<true> = DateTime.now().setZone('America/New_York') as DateTime<true>
 ): DateTime<true> {
