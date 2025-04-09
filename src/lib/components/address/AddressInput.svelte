@@ -8,7 +8,7 @@
 	function handleClick() {
 		if (isRequestInFlight) return;
 		isRequestInFlight = true;
-		travelTimesRequest.task = getTravelTimes().finally(() => {
+		travelTimesRequest.task = getTravelTimes(address).finally(() => {
 			isRequestInFlight = false;
 		});
 	}
