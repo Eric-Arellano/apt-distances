@@ -9,7 +9,7 @@ import {
 } from '$lib/server/destinations';
 
 export const GET: RequestHandler = async ({ url }) => {
-	let address = url.searchParams.get('street-address');
+	const address = url.searchParams.get('street-address');
 	if (!address) {
 		throw error(400, '`street-address` parameter is required');
 	}
