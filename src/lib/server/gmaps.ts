@@ -1,6 +1,7 @@
 import { RoutesClient } from '@googlemaps/routing';
 
 import type { ActiveTransportRoute, TransitRoute } from '$lib/types';
+import { getNextDateTime, type TargetDate } from './departureTime';
 
 const ROUTES_CLIENT = new RoutesClient({ apiKey: process.env['GOOGLE_MAPS_TOKEN'] });
 
@@ -47,13 +48,16 @@ export async function computeActiveTransportRoute(options: {
 export async function computeTransitRoute(options: {
 	origin: string;
 	dest: string;
+	targetDeparture: TargetDate;
 }): Promise<TransitRoute> {
-	const { origin, dest } = options;
+	const { origin, dest, targetDeparture } = options;
+	const actualDeparture = getNextDateTime(targetDeparture);
 	const response = await ROUTES_CLIENT.computeRoutes(
 		{
 			origin: { address: origin },
 			destination: { address: dest },
-			travelMode: 'TRANSIT'
+			travelMode: 'TRANSIT',
+			departureTime: { seconds: actualDeparture.toMillis() / 1000 }
 		},
 		{
 			otherArgs: {
@@ -76,12 +80,15 @@ export async function computeTransitRoute(options: {
 	}
 	const leg = route.legs[0];
 
-	const steps = leg.steps
-		?.map((step) => step.transitDetails?.transitLine?.nameShort)
+	const summary = leg
+		.steps!.map((step) => {
+			const name = step.transitDetails?.transitLine?.nameShort;
+			return name?.replace(' Line', '').replace(' Train', '');
+		})
 		.filter((name) => name !== null && name !== undefined)
-		.map((name) => name.replace(' Line', '').replace(' Train', ''));
+		.join(' -> ');
 	return {
 		timeMinutes: secondsStringToMinutes(route.duration!.seconds as string),
-		summary: steps?.join(' -> ') ?? 'unknown'
+		summary
 	};
 }
