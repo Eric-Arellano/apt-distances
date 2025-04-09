@@ -1,59 +1,35 @@
+import { DateTime } from 'luxon';
+
+// Luxon numbers days of the week from 1-7.
 export enum DayOfWeek {
-	Sunday = 0,
 	Monday = 1,
 	Tuesday = 2,
 	Wednesday = 3,
 	Thursday = 4,
 	Friday = 5,
-	Saturday = 6
+	Saturday = 6,
+	Sunday = 7
 }
 
-// Time should be specified in ET.
+/** Time should be specified in America/New_York (i.e, ET). */
 export interface TargetDate {
 	day: DayOfWeek;
-	hours: number;
-	minutes: number;
+	hour: number;
+	minute: number;
 }
 
-export function getNextDayTime(target: TargetDate, fromDate: Date = new Date()): Date {
-	const daysToAdd = computeDaysToAdd({
-		currentDay: fromDate.getDay(),
-		currentHours: fromDate.getHours(),
-		currentMinutes: fromDate.getMinutes(),
-		targetDay: target.day,
-		targetHours: target.hours,
-		targetMinutes: target.minutes
-	});
-	const result = new Date(fromDate);
-	result.setDate(fromDate.getDate() + daysToAdd);
-	result.setHours(target.hours, target.minutes, 0, 0);
-	return result;
-}
-
-function computeDaysToAdd(options: {
-	currentDay: number;
-	currentHours: number;
-	currentMinutes: number;
-	targetDay: number;
-	targetHours: number;
-	targetMinutes: number;
-}): number {
-	const { currentDay, currentHours, currentMinutes, targetDay, targetHours, targetMinutes } =
-		options;
-
-	if (currentDay === targetDay) {
-		const timeHasPassed =
-			currentHours > targetHours ||
-			(currentHours === targetHours && currentMinutes > targetMinutes);
-		return timeHasPassed ? 7 : 0;
+export function getNextDayTime(
+	target: TargetDate,
+	fromDate: DateTime<true> = DateTime.now().setZone('America/New_York') as DateTime<true>
+): DateTime<true> {
+	if (fromDate.zoneName !== 'America/New_York') {
+		throw new Error(`Invalid timezone for input date: ${fromDate.zoneName}`);
 	}
 
-	// Target day is later in this week.
-	if (currentDay < targetDay) {
-		return targetDay - currentDay;
+	let daysToAdd = target.day - fromDate.weekday;
+	// If the day has already passed this week, use next week
+	if (daysToAdd <= 0) {
+		daysToAdd += 7;
 	}
-
-	// Else, target day was earlier in this week. So,
-	// use the following week.
-	return 7 - (currentDay - targetDay);
+	return fromDate.plus({ days: daysToAdd }).set({ hour: target.hour, minute: target.minute });
 }
