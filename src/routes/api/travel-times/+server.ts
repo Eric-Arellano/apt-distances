@@ -1,31 +1,18 @@
 import { json, type RequestHandler } from '@sveltejs/kit';
 
 import type { TravelTimes } from '$lib/types';
-
-function sleep(ms: number) {
-	return new Promise((resolve) => setTimeout(resolve, ms));
-}
+import {
+	computeChurch,
+	computeFractal,
+	computePartner,
+	computeWork
+} from '$lib/server/destinations';
 
 export const GET: RequestHandler = async () => {
-	// Simulate a slow response
-	await sleep(300);
+	const origin = '410 10th Ave, New York, NY';
 	const result: TravelTimes = {
-		work: {
-			walk: {
-				timeMinutes: 18,
-				distanceMiles: 1.5
-			},
-			bike: {
-				timeMinutes: 4,
-				distanceMiles: 1.5
-			}
-		},
-		partner: {
-			transit: {
-				timeMinutes: 21,
-				summary: 'E -> Q'
-			}
-		},
+		work: await computeWork(origin),
+		partner: await computePartner(origin),
 		subwayStop: {
 			closest: {
 				name: '14th St',
@@ -54,18 +41,8 @@ export const GET: RequestHandler = async () => {
 				distanceMiles: 0.8
 			}
 		},
-		fractal: {
-			transit: {
-				timeMinutes: 42,
-				summary: 'L'
-			}
-		},
-		church: {
-			transit: {
-				timeMinutes: 18,
-				summary: '2'
-			}
-		}
+		fractal: await computeFractal(origin),
+		church: await computeChurch(origin)
 	};
 	return json(result);
 };
