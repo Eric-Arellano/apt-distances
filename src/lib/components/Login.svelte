@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import authState from '$lib/state/auth.svelte';
 
 	let password = '';
@@ -17,6 +18,7 @@
 			<input
 				type="password"
 				bind:value={password}
+				required
 				class="w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
 				aria-label="Password"
 			/>
