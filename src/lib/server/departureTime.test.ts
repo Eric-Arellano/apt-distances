@@ -152,7 +152,7 @@ describe('getNextDayTime', () => {
 
 	testCases.forEach(({ description, now, targetDay, targetTime, expected }) => {
 		it(description, () => {
-			const result = getNextDayTime(targetDay, targetTime.hours, targetTime.minutes, now);
+			const result = getNextDayTime({ day: targetDay, ...targetTime }, now);
 			expect(result.getFullYear()).toBe(expected.year);
 			expect(result.getMonth()).toBe(expected.month);
 			expect(result.getDate()).toBe(expected.date);

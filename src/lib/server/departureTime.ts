@@ -8,23 +8,25 @@ export enum DayOfWeek {
 	Saturday = 6
 }
 
-export function getNextDayTime(
-	targetDay: DayOfWeek,
-	targetHours: number,
-	targetMinutes: number,
-	fromDate: Date = new Date()
-): Date {
+// Time should be specified in ET.
+export interface TargetDate {
+	day: DayOfWeek;
+	hours: number;
+	minutes: number;
+}
+
+export function getNextDayTime(target: TargetDate, fromDate: Date = new Date()): Date {
 	const daysToAdd = computeDaysToAdd({
 		currentDay: fromDate.getDay(),
 		currentHours: fromDate.getHours(),
 		currentMinutes: fromDate.getMinutes(),
-		targetDay,
-		targetHours,
-		targetMinutes
+		targetDay: target.day,
+		targetHours: target.hours,
+		targetMinutes: target.minutes
 	});
 	const result = new Date(fromDate);
 	result.setDate(fromDate.getDate() + daysToAdd);
-	result.setHours(targetHours, targetMinutes, 0, 0);
+	result.setHours(target.hours, target.minutes, 0, 0);
 	return result;
 }
 
