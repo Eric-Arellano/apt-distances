@@ -4,6 +4,7 @@ import type { TravelTimes } from '$lib/types';
 import {
 	computeChurch,
 	computeFractal,
+	computePark,
 	computePartner,
 	computeWork
 } from '$lib/server/destinations';
@@ -25,7 +26,7 @@ export const GET: RequestHandler = async ({ url }) => {
 		work: await computeWork(origin),
 		partner: await computePartner(origin),
 		subwayStop: MOCK_DATA.subwayStop,
-		park: MOCK_DATA.park,
+		park: await computePark(origin),
 		farmersMarket: MOCK_DATA.farmersMarket,
 		fractal: await computeFractal(origin),
 		church: await computeChurch(origin)

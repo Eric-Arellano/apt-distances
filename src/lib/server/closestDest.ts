@@ -30,7 +30,7 @@ export function haversineDistance(point1: CoordinatePoint, point2: CoordinatePoi
  * Computes the closest point from a list of candidates to the origin point.
  */
 export function computeClosestPoint<T extends CoordinatePoint>(
-	origin: T,
+	origin: CoordinatePoint,
 	candidates: Array<T>
 ): T | null {
 	if (candidates.length === 0) {
@@ -52,4 +52,15 @@ export function computeClosestPoint<T extends CoordinatePoint>(
 		}
 	}
 	return closestPoint;
+}
+
+export async function findClosest<T extends CoordinatePoint>(
+	originAddress: string,
+	candidates: Array<T>
+): Promise<T> {
+	// TODO: use GMaps
+	const originPoint = { latitude: 84.131313, longitude: 95.13131 };
+	const closest = computeClosestPoint(originPoint, candidates);
+	if (!closest) throw new Error('Must provide at least one candidate');
+	return closest;
 }
