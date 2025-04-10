@@ -43,6 +43,7 @@
 		"vitest": "^3.0.0"
 	},
 	"dependencies": {
+		"@googlemaps/google-maps-services-js": "^3.4.1",
 		"@googlemaps/routing": "^2.0.1",
 		"luxon": "^3.6.1"
 	}

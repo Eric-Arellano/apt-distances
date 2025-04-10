@@ -2,9 +2,9 @@ import { RoutesClient } from '@googlemaps/routing';
 
 import type { ActiveTransportRoute, TransitRoute } from '$lib/types';
 import { getNextDateTime, type TargetDate } from './departureTime';
-import { GOOGLE_MAPS_TOKEN } from './env';
+import { googleMapsToken } from './env';
 
-const ROUTES_CLIENT = new RoutesClient({ apiKey: GOOGLE_MAPS_TOKEN });
+const ROUTES_CLIENT = new RoutesClient({ apiKey: googleMapsToken() });
 
 function secondsStringToMinutes(seconds: string): number {
 	return Math.round(Number(seconds) / 60);
