@@ -7,8 +7,14 @@ import {
 	computePartner,
 	computeWork
 } from '$lib/server/destinations';
+import { USE_MOCK_DATA } from '$lib/server/env';
+import { MOCK_DATA } from '$lib/mockData';
 
 export const GET: RequestHandler = async ({ url }) => {
+	if (USE_MOCK_DATA) {
+		return json(MOCK_DATA);
+	}
+
 	const address = url.searchParams.get('street-address');
 	if (!address) {
 		throw error(400, '`street-address` parameter is required');
@@ -18,34 +24,9 @@ export const GET: RequestHandler = async ({ url }) => {
 	const result: TravelTimes = {
 		work: await computeWork(origin),
 		partner: await computePartner(origin),
-		subwayStop: {
-			closest: {
-				name: '14th St',
-				lines: ['E', 'Q', 'R']
-			},
-			walk: {
-				timeMinutes: 6,
-				distanceMiles: 0.3
-			}
-		},
-		park: {
-			closest: {
-				name: 'Union Square'
-			},
-			walk: {
-				timeMinutes: 12,
-				distanceMiles: 0.8
-			}
-		},
-		farmersMarket: {
-			closest: {
-				name: 'Union Square'
-			},
-			walk: {
-				timeMinutes: 12,
-				distanceMiles: 0.8
-			}
-		},
+		subwayStop: MOCK_DATA.subwayStop,
+		park: MOCK_DATA.park,
+		farmersMarket: MOCK_DATA.farmersMarket,
 		fractal: await computeFractal(origin),
 		church: await computeChurch(origin)
 	};
