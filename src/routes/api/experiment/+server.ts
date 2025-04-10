@@ -1,13 +1,8 @@
 import { json, type RequestHandler } from '@sveltejs/kit';
 
-import { computeTransitRoute } from '$lib/server/gmaps';
-import { DayOfWeek } from '$lib/server/departureTime';
+import { geocode } from '$lib/server/gmapsGeocoding';
 
 export const GET: RequestHandler = async () => {
-	const result = await computeTransitRoute({
-		origin: '410 10th Ave, New York, NY',
-		dest: '1 Madison Ave, New York, NY 10010',
-		targetDeparture: { day: DayOfWeek.Monday, hour: 9, minute: 0 }
-	});
+	const result = await geocode('410 10th Ave, New York, NY');
 	return json(result);
 };

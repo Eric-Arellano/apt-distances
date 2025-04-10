@@ -1,7 +1,7 @@
 import type TravelTimes from '$lib/components/travelTimes';
 import { findClosest } from './closestDest';
 import { DayOfWeek } from './departureTime';
-import { computeActiveTransportRoute, computeTransitRoute } from './gmaps';
+import { computeActiveTransportRoute, computeTransitRoute } from './gmapsRouting';
 
 const PARKS = [
 	{
@@ -108,5 +108,5 @@ export async function computePark(origin: string): Promise<TravelTimes['park']> 
 		dest: closest.address,
 		mode: 'WALK'
 	});
-	return { walk, closet: { name: closest.name } };
+	return { walk, closest: { name: closest.name } };
 }

@@ -1,3 +1,5 @@
+import { geocode } from './gmapsGeocoding';
+
 export interface CoordinatePoint {
 	latitude: number;
 	longitude: number;
@@ -58,8 +60,7 @@ export async function findClosest<T extends CoordinatePoint>(
 	originAddress: string,
 	candidates: Array<T>
 ): Promise<T> {
-	// TODO: use GMaps
-	const originPoint = { latitude: 84.131313, longitude: 95.13131 };
+	const originPoint = await geocode(originAddress);
 	const closest = computeClosestPoint(originPoint, candidates);
 	if (!closest) throw new Error('Must provide at least one candidate');
 	return closest;
