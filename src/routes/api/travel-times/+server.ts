@@ -3,9 +3,11 @@ import { error, json, type RequestHandler } from '@sveltejs/kit';
 import type { TravelTimes } from '$lib/types';
 import {
 	computeChurch,
+	computeFarmersMarket,
 	computeFractal,
 	computePark,
 	computePartner,
+	computeSubwayStop,
 	computeWork
 } from '$lib/server/destinations';
 import { USE_MOCK_DATA } from '$lib/server/env';
@@ -25,9 +27,9 @@ export const GET: RequestHandler = async ({ url }) => {
 	const result: TravelTimes = {
 		work: await computeWork(origin),
 		partner: await computePartner(origin),
-		subwayStop: MOCK_DATA.subwayStop,
+		subwayStop: await computeSubwayStop(origin),
 		park: await computePark(origin),
-		farmersMarket: MOCK_DATA.farmersMarket,
+		farmersMarket: await computeFarmersMarket(origin),
 		fractal: await computeFractal(origin),
 		church: await computeChurch(origin)
 	};
