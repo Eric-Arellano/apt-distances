@@ -29,12 +29,6 @@ export interface TravelTimes {
 		};
 		walk: ActiveTransportRoute;
 	};
-	farmersMarket: {
-		closest: {
-			name: string;
-		};
-		walk: ActiveTransportRoute;
-	};
 	fractal: {
 		transit: TransitRoute;
 	};

@@ -36,15 +36,6 @@ export const MOCK_DATA: TravelTimes = {
 			distanceMiles: 0.8
 		}
 	},
-	farmersMarket: {
-		closest: {
-			name: 'Union Square'
-		},
-		walk: {
-			timeMinutes: 12,
-			distanceMiles: 0.8
-		}
-	},
 	fractal: {
 		transit: {
 			timeMinutes: 42,
