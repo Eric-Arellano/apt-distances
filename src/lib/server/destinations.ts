@@ -1,5 +1,5 @@
 import type TravelTimes from '$lib/components/travelTimes';
-import { FARMERS_MARKETS, PARKS, SUBWAY_STOPS } from './candidateLocations';
+import { PARKS, SUBWAY_STOPS } from './candidateLocations';
 import { findClosest } from './closestDest';
 import { DayOfWeek } from './departureTime';
 import { computeActiveTransportRoute, computeTransitRoute } from './gmapsRouting';
@@ -41,16 +41,6 @@ export async function computeChurch(origin: string): Promise<TravelTimes['partne
 
 export async function computePark(origin: string): Promise<TravelTimes['park']> {
 	const closest = await findClosest(origin, PARKS);
-	const walk = await computeActiveTransportRoute({
-		origin,
-		dest: closest.address,
-		mode: 'WALK'
-	});
-	return { walk, closest: { name: closest.name } };
-}
-
-export async function computeFarmersMarket(origin: string): Promise<TravelTimes['farmersMarket']> {
-	const closest = await findClosest(origin, FARMERS_MARKETS);
 	const walk = await computeActiveTransportRoute({
 		origin,
 		dest: closest.address,

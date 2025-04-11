@@ -3,7 +3,6 @@ import { error, json, type RequestHandler } from '@sveltejs/kit';
 import type { TravelTimes } from '$lib/types';
 import {
 	computeChurch,
-	computeFarmersMarket,
 	computeFractal,
 	computePark,
 	computePartner,
@@ -29,7 +28,6 @@ export const GET: RequestHandler = async ({ url }) => {
 		partner: await computePartner(origin),
 		subwayStop: await computeSubwayStop(origin),
 		park: await computePark(origin),
-		farmersMarket: await computeFarmersMarket(origin),
 		fractal: await computeFractal(origin),
 		church: await computeChurch(origin)
 	};
