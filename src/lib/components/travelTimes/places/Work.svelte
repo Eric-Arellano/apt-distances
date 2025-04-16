@@ -5,7 +5,7 @@
 	let { walk, bike, transit }: TravelTimes['work'] = $props();
 
 	const idealMinutes = 15;
-	const maxMinutes = 20;
+	const maxMinutes = 25;
 
 	function goalStatus(): GoalStatus {
 		const minTime = Math.min(walk.timeMinutes, bike.timeMinutes, transit.timeMinutes);
