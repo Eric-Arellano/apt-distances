@@ -12,6 +12,7 @@ import {
 } from '$lib/server/destinations';
 import { USE_MOCK_DATA } from '$lib/server/env';
 import { MOCK_DATA } from '$lib/mockData';
+import { geocode } from '$lib/server/gmapsGeocoding';
 
 export const GET: RequestHandler = async ({ url }) => {
 	if (USE_MOCK_DATA) {
@@ -22,16 +23,17 @@ export const GET: RequestHandler = async ({ url }) => {
 	if (!address) {
 		throw error(400, '`street-address` parameter is required');
 	}
-	const origin = `${address}, New York, NY`;
+	const originAddr = `${address}, New York, NY`;
+	const originPoint = await geocode(originAddr);
 
 	const result: TravelTimes = {
-		work: await computeWork(origin),
-		partner: await computePartner(origin),
-		subwayStop: await computeSubwayStop(origin),
-		park: await computePark(origin),
-		farmersMarket: await computeFarmersMarket(origin),
-		fractal: await computeFractal(origin),
-		church: await computeChurch(origin)
+		work: await computeWork(originAddr),
+		partner: await computePartner(originAddr),
+		subwayStop: await computeSubwayStop(originAddr, originPoint),
+		park: await computePark(originAddr, originPoint),
+		farmersMarket: await computeFarmersMarket(originAddr, originPoint),
+		fractal: await computeFractal(originAddr),
+		church: await computeChurch(originAddr)
 	};
 	return json(result);
 };
