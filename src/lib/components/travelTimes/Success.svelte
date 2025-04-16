@@ -15,8 +15,8 @@
 	<Work {...travelTimes.work} />
 	<Partner {...travelTimes.partner} />
 	<SubwayStop {...travelTimes.subwayStop} />
-	<FarmersMarket {...travelTimes.farmersMarket} />
 	<Park {...travelTimes.park} />
+	<FarmersMarket {...travelTimes.farmersMarket} />
 	<Fractal {...travelTimes.fractal} />
 	<Church {...travelTimes.church} />
 </div>

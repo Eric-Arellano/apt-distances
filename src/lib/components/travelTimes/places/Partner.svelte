@@ -2,16 +2,17 @@
 	import DestinationCard from '../DestinationCard.svelte';
 	import type { TravelTimes, GoalStatus } from '$lib/types';
 
-	let { transit }: TravelTimes['partner'] = $props();
+	let { walk, transit }: TravelTimes['partner'] = $props();
 
 	const idealMinutes = 20;
 	const maxMinutes = 30;
 
 	function goalStatus(): GoalStatus {
-		if (transit.timeMinutes <= idealMinutes) {
+		const minTime = Math.min(walk.timeMinutes, transit.timeMinutes);
+		if (minTime <= idealMinutes) {
 			return 'met';
 		}
-		if (transit.timeMinutes <= maxMinutes) {
+		if (minTime <= maxMinutes) {
 			return 'partial';
 		}
 		return 'unmet';
@@ -21,6 +22,9 @@
 <DestinationCard
 	title="Partner 👬"
 	goal="Must be within {maxMinutes} minutes; ideally within {idealMinutes} minutes"
-	routes={[`🚇 ${transit.timeMinutes} minutes on the ${transit.summary}`]}
+	routes={[
+		`🚇 ${transit.timeMinutes} minutes on the ${transit.summary}`,
+		`🚶 ${walk.timeMinutes} minutes (${walk.distanceMiles} miles)`
+	]}
 	goalStatus={goalStatus()}
 />
