@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Church from './places/Church.svelte';
+	import FarmersMarket from './places/FarmersMarket.svelte';
 	import Fractal from './places/Fractal.svelte';
 	import Park from './places/Park.svelte';
 	import Partner from './places/Partner.svelte';
@@ -14,6 +15,7 @@
 	<Work {...travelTimes.work} />
 	<Partner {...travelTimes.partner} />
 	<SubwayStop {...travelTimes.subwayStop} />
+	<FarmersMarket {...travelTimes.farmersMarket} />
 	<Park {...travelTimes.park} />
 	<Fractal {...travelTimes.fractal} />
 	<Church {...travelTimes.church} />
