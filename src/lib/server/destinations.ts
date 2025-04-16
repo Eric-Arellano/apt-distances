@@ -1,6 +1,6 @@
 import type TravelTimes from '$lib/components/travelTimes';
 import { FARMERS_MARKETS, PARKS, SUBWAY_STOPS } from './candidateLocations';
-import { findClosest } from './closestDest';
+import { findClosest, type CoordinatePoint } from './closestDest';
 import { DayOfWeek } from './departureTime';
 import { computeActiveTransportRoute, computeTransitRoute } from './gmapsRouting';
 
@@ -39,30 +39,39 @@ export async function computeChurch(origin: string): Promise<TravelTimes['partne
 	return { transit };
 }
 
-export async function computeFarmersMarket(origin: string): Promise<TravelTimes['farmersMarket']> {
-	const closest = await findClosest(origin, FARMERS_MARKETS);
+export async function computeFarmersMarket(
+	originAddr: string,
+	originPoint: CoordinatePoint
+): Promise<TravelTimes['farmersMarket']> {
+	const closest = findClosest(originPoint, FARMERS_MARKETS);
 	const walk = await computeActiveTransportRoute({
-		origin,
+		origin: originAddr,
 		dest: closest.address,
 		mode: 'WALK'
 	});
 	return { walk, closest: { name: closest.name } };
 }
 
-export async function computePark(origin: string): Promise<TravelTimes['park']> {
-	const closest = await findClosest(origin, PARKS);
+export async function computePark(
+	originAddr: string,
+	originPoint: CoordinatePoint
+): Promise<TravelTimes['park']> {
+	const closest = findClosest(originPoint, PARKS);
 	const walk = await computeActiveTransportRoute({
-		origin,
+		origin: originAddr,
 		dest: closest.address,
 		mode: 'WALK'
 	});
 	return { walk, closest: { name: closest.name } };
 }
 
-export async function computeSubwayStop(origin: string): Promise<TravelTimes['subwayStop']> {
-	const closest = await findClosest(origin, SUBWAY_STOPS);
+export async function computeSubwayStop(
+	originAddr: string,
+	originPoint: CoordinatePoint
+): Promise<TravelTimes['subwayStop']> {
+	const closest = findClosest(originPoint, SUBWAY_STOPS);
 	const walk = await computeActiveTransportRoute({
-		origin,
+		origin: originAddr,
 		dest: closest.address,
 		mode: 'WALK'
 	});
