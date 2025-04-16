@@ -9,9 +9,17 @@ export const MOCK_DATA: TravelTimes = {
 		bike: {
 			timeMinutes: 4,
 			distanceMiles: 1.5
+		},
+		transit: {
+			timeMinutes: 7,
+			summary: 'N'
 		}
 	},
 	partner: {
+		walk: {
+			timeMinutes: 56,
+			distanceMiles: 2.3
+		},
 		transit: {
 			timeMinutes: 21,
 			summary: 'E -> Q'

@@ -8,17 +8,25 @@ export async function computeWork(origin: string): Promise<TravelTimes['work']> 
 	const dest = '1 Madison Ave, New York, NY 10010';
 	return {
 		walk: await computeActiveTransportRoute({ origin, dest, mode: 'WALK' }),
-		bike: await computeActiveTransportRoute({ origin, dest, mode: 'BICYCLE' })
+		bike: await computeActiveTransportRoute({ origin, dest, mode: 'BICYCLE' }),
+		transit: await computeTransitRoute({
+			origin,
+			dest,
+			targetDeparture: { day: DayOfWeek.Monday, hour: 8, minute: 45 }
+		})
 	};
 }
 
 export async function computePartner(origin: string): Promise<TravelTimes['partner']> {
-	const transit = await computeTransitRoute({
-		origin,
-		dest: '282 West End Ave, New York, NY 10023',
-		targetDeparture: { day: DayOfWeek.Saturday, hour: 20, minute: 30 }
-	});
-	return { transit };
+	const dest = '282 West End Ave, New York, NY 10023';
+	return {
+		walk: await computeActiveTransportRoute({ origin, dest, mode: 'WALK' }),
+		transit: await computeTransitRoute({
+			origin,
+			dest,
+			targetDeparture: { day: DayOfWeek.Saturday, hour: 20, minute: 30 }
+		})
+	};
 }
 
 export async function computeFractal(origin: string): Promise<TravelTimes['partner']> {

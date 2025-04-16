@@ -12,8 +12,10 @@ export interface TravelTimes {
 	work: {
 		walk: ActiveTransportRoute;
 		bike: ActiveTransportRoute;
+		transit: TransitRoute;
 	};
 	partner: {
+		walk: ActiveTransportRoute;
 		transit: TransitRoute;
 	};
 	subwayStop: {
