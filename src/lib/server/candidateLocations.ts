@@ -1,3 +1,24 @@
+export const FARMERS_MARKETS = [
+	{
+		name: 'Union Square',
+		latitude: 40.735881,
+		longitude: -73.99077,
+		address: '201 Park Ave S, New York, NY 10003'
+	},
+	{
+		name: 'Abingdon Square',
+		latitude: 40.737355,
+		longitude: -74.005421,
+		address: '11 Abingdon Square, New York, NY 10014'
+	},
+	{
+		name: 'Dag Hammarskjold Plaza',
+		latitude: 40.752148,
+		longitude: -73.968643,
+		address: 'E 47th St, New York, NY 10017'
+	}
+];
+
 export const PARKS = [
 	{
 		name: 'Bryant Park',
