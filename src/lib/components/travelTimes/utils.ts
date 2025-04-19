@@ -1,4 +1,18 @@
-import type { ActiveTransportRoute, TransitRoute } from '$lib/types';
+import type { ActiveTransportRoute, GoalStatus, TransitRoute } from '$lib/types';
+
+export function goalStatus(
+	routes: Array<{ timeMinutes: number }>,
+	times: { idealMinutes: number; maxMinutes: number }
+): GoalStatus {
+	const minTime = Math.min(...routes.map((route) => route.timeMinutes));
+	if (minTime <= times.idealMinutes) {
+		return 'met';
+	}
+	if (minTime <= times.maxMinutes) {
+		return 'partial';
+	}
+	return 'unmet';
+}
 
 export function transitRoute(route: TransitRoute): string {
 	const mode = route.type === 'walking' ? 'by walking' : `on the ${route.summary}`;
