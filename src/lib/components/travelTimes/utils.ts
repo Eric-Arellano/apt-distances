@@ -23,6 +23,22 @@ export function bikeRoute(route: ActiveTransportRoute): string {
 	return `🚴 ${route.timeMinutes} minutes (${route.distanceMiles} miles)`;
 }
 
-export function walkRoute(route: ActiveTransportRoute): string {
-	return `🚶 ${route.timeMinutes} minutes (${route.distanceMiles} miles)`;
+export function walkRoute(
+	route: ActiveTransportRoute,
+	destination?: {
+		name: string;
+		additionalInfo?: string;
+	}
+): string {
+	let result = `🚶 ${route.timeMinutes} minutes`;
+
+	if (destination) {
+		result += ` to ${destination.name}`;
+		if (destination.additionalInfo) {
+			result += ` ${destination.additionalInfo}`;
+		}
+	}
+
+	result += ` (${route.distanceMiles} miles)`;
+	return result;
 }
