@@ -85,6 +85,7 @@ export async function computeTransitRoute(options: {
 	}
 	const leg = route.legs[0];
 
+	const timeMinutes = secondsStringToMinutes(route.duration!.seconds as string);
 	const summary = leg
 		.steps!.map((step) => {
 			const name = step.transitDetails?.transitLine?.nameShort;
@@ -92,8 +93,10 @@ export async function computeTransitRoute(options: {
 		})
 		.filter((name) => name !== null && name !== undefined)
 		.join(' -> ');
+	if (!summary) return { timeMinutes, type: 'walking' };
 	return {
-		timeMinutes: secondsStringToMinutes(route.duration!.seconds as string),
+		timeMinutes,
+		type: 'transit',
 		summary
 	};
 }

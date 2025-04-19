@@ -12,6 +12,7 @@ export const MOCK_DATA: TravelTimes = {
 		},
 		transit: {
 			timeMinutes: 7,
+			type: 'transit',
 			summary: 'N'
 		}
 	},
@@ -22,6 +23,7 @@ export const MOCK_DATA: TravelTimes = {
 		},
 		transit: {
 			timeMinutes: 21,
+			type: 'transit',
 			summary: 'E -> Q'
 		}
 	},
@@ -56,12 +58,14 @@ export const MOCK_DATA: TravelTimes = {
 	fractal: {
 		transit: {
 			timeMinutes: 42,
+			type: 'transit',
 			summary: 'L'
 		}
 	},
 	church: {
 		transit: {
 			timeMinutes: 18,
+			type: 'transit',
 			summary: '2'
 		}
 	}

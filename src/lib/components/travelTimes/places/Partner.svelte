@@ -1,6 +1,7 @@
 <script lang="ts">
 	import DestinationCard from '../DestinationCard.svelte';
 	import type { TravelTimes, GoalStatus } from '$lib/types';
+	import { transitRoute, walkRoute } from '../utils';
 
 	let { walk, transit }: TravelTimes['partner'] = $props();
 
@@ -22,9 +23,6 @@
 <DestinationCard
 	title="Partner 👬"
 	goal="Must be within {maxMinutes} minutes; ideally within {idealMinutes} minutes"
-	routes={[
-		`🚇 ${transit.timeMinutes} minutes on the ${transit.summary}`,
-		`🚶 ${walk.timeMinutes} minutes (${walk.distanceMiles} miles)`
-	]}
+	routes={[transitRoute(transit), walkRoute(walk)]}
 	goalStatus={goalStatus()}
 />
