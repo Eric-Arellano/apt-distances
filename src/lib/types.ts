@@ -3,10 +3,16 @@ export interface ActiveTransportRoute {
 	distanceMiles: number;
 }
 
-export interface TransitRoute {
-	timeMinutes: number;
-	summary: string;
-}
+export type TransitRoute =
+	| {
+			timeMinutes: number;
+			type: 'walking';
+	  }
+	| {
+			timeMinutes: number;
+			type: 'transit';
+			summary: string;
+	  };
 
 export interface TravelTimes {
 	work: {
