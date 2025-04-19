@@ -1,7 +1,7 @@
 import type { ActiveTransportRoute, GoalStatus, TransitRoute } from '$lib/types';
 
 export function goalStatus(
-	routes: Array<ActiveTransportRoute | TransitRoute>,
+	routes: Array<{ timeMinutes: number }>,
 	times: { idealMinutes: number; maxMinutes: number }
 ): GoalStatus {
 	const minTime = Math.min(...routes.map((route) => route.timeMinutes));
