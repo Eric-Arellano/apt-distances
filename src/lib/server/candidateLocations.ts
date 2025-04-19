@@ -16,6 +16,18 @@ export const FARMERS_MARKETS = [
 		latitude: 40.752148,
 		longitude: -73.968643,
 		address: 'E 47th St, New York, NY 10017'
+	},
+	{
+		name: 'Tucker Square',
+		latitude: 40.773283,
+		longitude: -73.981953,
+		address: '125 Columbus Ave 4th Floor, New York, NY 10023'
+	},
+	{
+		name: '79th St Greenmarket',
+		latitude: 40.782079,
+		longitude: -73.975855,
+		address: '102 W 79th St, New York, NY 10024'
 	}
 ];
 
@@ -85,6 +97,126 @@ export const PARKS = [
 		latitude: 40.742006,
 		longitude: -74.007829,
 		address: '472 W 14th St, New York, NY 10014'
+	},
+	{
+		name: 'Central Park - Columbus Square',
+		latitude: 0,
+		longitude: -73.981439,
+		address: '1820 Broadway, New York, NY 10023'
+	},
+	{
+		name: 'Central Park - 65 St',
+		latitude: 40.77166,
+		longitude: -73.979078,
+		address: '50 Central Prk W, New York, NY 10023'
+	},
+	{
+		name: 'Central Park - 69 St',
+		latitude: 40.774229,
+		longitude: -73.977152,
+		address: '88 Central Prk W, New York, NY 10023'
+	},
+	{
+		name: 'Central Park - 72 St',
+		latitude: 40.776051,
+		longitude: -73.975799,
+		address: '115 Central Prk W, New York, NY 10023'
+	},
+	{
+		name: 'Central Park - 77 St',
+		latitude: 40.779289,
+		longitude: -73.973473,
+		address: '170 Central Prk W, New York, NY 10024'
+	},
+	{
+		name: 'Central Park - 81 St',
+		latitude: 40.782055,
+		longitude: -73.971413,
+		address: '211 Central Prk W, New York, NY 10024'
+	},
+	{
+		name: 'Central Park - 86 St',
+		latitude: 40.785374,
+		longitude: -73.96902,
+		address: '262 Central Prk W, New York, NY 10024'
+	},
+	{
+		name: 'Central Park - 90 St',
+		latitude: 40.787765,
+		longitude: -73.967278,
+		address: '295 Central Prk W, New York, NY 10024'
+	},
+	{
+		name: 'Central Park - 96 St',
+		latitude: 40.791534,
+		longitude: -73.96459,
+		address: '360 Central Prk W, New York, NY 10025'
+	},
+	{
+		name: 'Central Park - 100 St',
+		latitude: 40.794132,
+		longitude: -73.962624,
+		address: '405 Central Prk W, New York, NY 10025'
+	},
+	{
+		name: 'Central Park - 106 St',
+		latitude: 40.797947,
+		longitude: -73.959836,
+		address: '461 W 106th St, New York, NY 10025'
+	},
+	{
+		name: 'Riverside - 60 St',
+		latitude: 40.773295,
+		longitude: -73.992719,
+		address: '8 Riverside Blvd, New York, NY 10069'
+	},
+	{
+		name: 'Riverside - 65 St',
+		latitude: 40.776182,
+		longitude: -73.989383,
+		address: 'Riverside Boulevard & W 65th St, New York, NY'
+	},
+	{
+		name: 'Riverside - 70 St',
+		latitude: 40.779461,
+		longitude: -73.987948,
+		address: '131 Riverside Blvd, New York, NY 10069'
+	},
+	{
+		name: 'Riverside - 75 St',
+		latitude: 40.78252,
+		longitude: -73.984916,
+		address: 'W 75th St & Riverside Dr, New York, NY 10023'
+	},
+	{
+		name: 'Riverside - 80 St',
+		latitude: 40.785528,
+		longitude: -73.981974,
+		address: '80 Riverside Dr, New York, NY 10024'
+	},
+	{
+		name: 'Riverside - 85 St',
+		latitude: 40.789273,
+		longitude: -73.980721,
+		address: '357 W 85th St, New York, NY 10024'
+	},
+	{
+		name: 'Riverside - 90 St',
+		latitude: 40.792178,
+		longitude: -73.977565,
+		address: '620 W 90th St, New York, NY 10024'
+	},
+	{
+		name: 'Riverside - 95 St',
+		latitude: 40.795464,
+		longitude: -73.975691,
+		address: '340 W 95th St, New York, NY 10025'
+	},
+	{
+		name: 'Riverside - 100 St',
+		latitude: 40.798595,
+		longitude: -73.973059,
+		address: '279 Riverside Dr, New York, NY 10025'
 	}
 ];
 
@@ -242,5 +374,89 @@ export const SUBWAY_STOPS = [
 		longitude: -73.98152,
 		address: '420 E 14th St, New York, NY 10009',
 		lines: ['L']
+	},
+	{
+		name: '59 St - Columbus Circle',
+		latitude: 40.768661,
+		longitude: -73.982167,
+		address: '10 Columbus Cir #106, New York, NY 10019',
+		lines: ['1', 'A', 'B', 'C', 'D']
+	},
+	{
+		name: '66 St - Lincoln Center',
+		latitude: 40.773527,
+		longitude: -73.982329,
+		address: 'W 66th St & Broadway, New York, NY 10023',
+		lines: ['1']
+	},
+	{
+		name: '72 St',
+		latitude: 40.778764,
+		longitude: -73.982099,
+		address: '2077 Broadway, New York, NY 10023',
+		lines: ['1', '2', '3']
+	},
+	{
+		name: '79 St',
+		latitude: 40.783891,
+		longitude: -73.980074,
+		address: '2218 Broadway, New York, NY 10024',
+		lines: ['1']
+	},
+	{
+		name: '86 St',
+		latitude: 40.788346,
+		longitude: -73.97644,
+		address: '245 W 86th St, New York, NY 10024',
+		lines: ['1']
+	},
+	{
+		name: '96 St',
+		latitude: 40.79395,
+		longitude: -73.972179,
+		address: '2540 Broadway, New York, NY 10025',
+		lines: ['1', '2', '3']
+	},
+	{
+		name: '103 St',
+		latitude: 40.799206,
+		longitude: -73.968404,
+		address: '2704 Broadway, New York, NY 10025',
+		lines: ['1']
+	},
+	{
+		name: '72 St',
+		latitude: 40.776254,
+		longitude: -73.975982,
+		address: '1 W 72nd St, New York, NY 10023',
+		lines: ['B', 'C']
+	},
+	{
+		name: '81 St',
+		latitude: 40.781457,
+		longitude: -73.972185,
+		address: '81 St-Museum of Natural History',
+		lines: ['B', 'C']
+	},
+	{
+		name: '86 St',
+		latitude: 40.785982,
+		longitude: -73.968802,
+		address: '271A Central Park West, New York, NY 10024',
+		lines: ['B', 'C']
+	},
+	{
+		name: '96 St',
+		latitude: 40.791706,
+		longitude: -73.964806,
+		address: '360 Central Prk W, New York, NY 10025',
+		lines: ['B', 'C']
+	},
+	{
+		name: '103 St',
+		latitude: 40.796118,
+		longitude: -73.961509,
+		address: '425 Central Prk W, New York, NY 10025',
+		lines: ['B', 'C']
 	}
 ];

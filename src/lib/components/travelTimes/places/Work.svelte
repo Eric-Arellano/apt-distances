@@ -24,8 +24,8 @@
 	goal="Must be within {maxMinutes} minutes; ideally within {idealMinutes} minutes"
 	routes={[
 		`🚇 ${transit.timeMinutes} minutes on the ${transit.summary}`,
-		`🚶 ${walk.timeMinutes} minutes (${walk.distanceMiles} miles)`,
-		`🚴 ${bike.timeMinutes} minutes (${bike.distanceMiles} miles)`
+		`🚴 ${bike.timeMinutes} minutes (${bike.distanceMiles} miles)`,
+		`🚶 ${walk.timeMinutes} minutes (${walk.distanceMiles} miles)`
 	]}
 	goalStatus={goalStatus()}
 />

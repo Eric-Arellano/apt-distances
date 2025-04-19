@@ -2,6 +2,7 @@
 	import Card from './Card.svelte';
 
 	const neighborhoods = [
+		'Upper West Side',
 		'Flatiron',
 		'Hudson Yards',
 		'NoMad',
@@ -12,8 +13,8 @@
 </script>
 
 <Card title="Candidate neighborhoods">
-	<div class="max-w-3xs">
-		<ul class="grid list-disc grid-cols-2 gap-y-1 pl-5">
+	<div class="sm:max-w-sm">
+		<ul class="list-disc pl-5 sm:grid sm:grid-cols-2 sm:gap-y-1">
 			{#each neighborhoods as neighborhood (neighborhood)}
 				<li>{neighborhood}</li>
 			{/each}
