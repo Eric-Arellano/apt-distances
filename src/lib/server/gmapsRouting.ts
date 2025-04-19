@@ -40,8 +40,12 @@ export async function computeActiveTransportRoute(options: {
 		throw new Error(`Unexpected routes in response: ${routes}`);
 	}
 	const route = routes[0];
+	const timeMinutes = secondsStringToMinutes(route.duration!.seconds as string);
+
+	// Add some buffer time to set up bike.
+	const bufferTimeMinutes = mode === 'BICYCLE' ? 2 : 0;
 	return {
-		timeMinutes: secondsStringToMinutes(route.duration!.seconds as string),
+		timeMinutes: timeMinutes + bufferTimeMinutes,
 		distanceMiles: metersToMi(route.distanceMeters!)
 	};
 }
