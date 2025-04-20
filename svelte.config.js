@@ -11,7 +11,21 @@ const config = {
 		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
 		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter()
+		adapter: adapter(),
+
+		// https://svelte.dev/docs/kit/configuration#csp
+		csp: {
+			directives: {
+				'script-src': ['self'],
+				'style-src': ['self'],
+				'img-src': ['self'],
+				'connect-src': ['self'],
+				'frame-ancestors': ['none'],
+				'form-action': ['self'],
+				'base-uri': ['self'],
+				'object-src': ['none']
+			}
+		}
 	}
 };
 
