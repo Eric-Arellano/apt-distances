@@ -8,3 +8,5 @@ function requireEnvVar(key: string): string {
 
 export const GMAPS_TOKEN = requireEnvVar('GOOGLE_MAPS_TOKEN');
 export const USE_MOCK_DATA = !!process.env['MOCK'];
+export const SITE_PASSWORD = requireEnvVar('SITE_PASSWORD');
+export const JWT_SECRET = requireEnvVar('JWT_SECRET');
