@@ -1,5 +1,5 @@
 <script lang="ts">
-	import authState from '$lib/state/auth.svelte';
+	import { login } from '$lib/state/auth.svelte';
 
 	let password = '';
 </script>
@@ -9,7 +9,7 @@
 	<form
 		onsubmit={(event) => {
 			event.preventDefault();
-			authState.isAuthenticated = true;
+			login(password);
 		}}
 		class="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3"
 	>
