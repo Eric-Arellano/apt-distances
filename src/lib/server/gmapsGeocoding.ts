@@ -1,12 +1,12 @@
 import { Client } from '@googlemaps/google-maps-services-js';
 
-import { googleMapsToken } from './env';
+import { GMAPS_TOKEN } from './env';
 
 const GEOCODING_CLIENT = new Client();
 
 export async function geocode(address: string): Promise<{ latitude: number; longitude: number }> {
 	const resp = await GEOCODING_CLIENT.geocode({
-		params: { key: googleMapsToken(), address: address }
+		params: { key: GMAPS_TOKEN, address: address }
 	});
 	const results = resp.data.results;
 	if (results.length !== 1) {
