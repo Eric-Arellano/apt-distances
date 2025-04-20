@@ -1,1 +1,5 @@
 @import 'tailwindcss';
+
+body > div:first-child {
+	display: contents;
+}
