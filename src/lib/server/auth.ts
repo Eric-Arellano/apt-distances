@@ -5,6 +5,7 @@ export function isValidSession(token: string): boolean {
 	try {
 		jwt.verify(token, JWT_SECRET);
 		return true;
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	} catch (e) {
 		return false;
 	}

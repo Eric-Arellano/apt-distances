@@ -6,7 +6,8 @@ export const POST: RequestHandler = async ({ request }) => {
 	let data;
 	try {
 		data = await request.json();
-	} catch (error) {
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	} catch (e) {
 		return json({ error: 'Invalid JSON in request body' }, { status: 400 });
 	}
 
