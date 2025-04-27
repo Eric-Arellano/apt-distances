@@ -16,17 +16,6 @@ export const MOCK_DATA: TravelTimes = {
 			summary: 'N'
 		}
 	},
-	partner: {
-		walk: {
-			timeMinutes: 56,
-			distanceMiles: 2.3
-		},
-		transit: {
-			timeMinutes: 21,
-			type: 'transit',
-			summary: 'E -> Q'
-		}
-	},
 	subwayStop: {
 		closest: {
 			name: '14th St',
@@ -53,13 +42,6 @@ export const MOCK_DATA: TravelTimes = {
 		walk: {
 			timeMinutes: 12,
 			distanceMiles: 0.8
-		}
-	},
-	fractal: {
-		transit: {
-			timeMinutes: 42,
-			type: 'transit',
-			summary: 'L'
 		}
 	},
 	church: {

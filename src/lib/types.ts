@@ -20,10 +20,6 @@ export interface TravelTimes {
 		bike: ActiveTransportRoute;
 		transit: TransitRoute;
 	};
-	partner: {
-		walk: ActiveTransportRoute;
-		transit: TransitRoute;
-	};
 	subwayStop: {
 		closest: {
 			name: string;
@@ -42,9 +38,6 @@ export interface TravelTimes {
 			name: string;
 		};
 		walk: ActiveTransportRoute;
-	};
-	fractal: {
-		transit: TransitRoute;
 	};
 	church: {
 		transit: TransitRoute;

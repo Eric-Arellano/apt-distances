@@ -4,9 +4,7 @@ import type { TravelTimes } from '$lib/types';
 import {
 	computeChurch,
 	computeFarmersMarket,
-	computeFractal,
 	computePark,
-	computePartner,
 	computeSubwayStop,
 	computeWork
 } from '$lib/server/destinations';
@@ -28,11 +26,9 @@ export const GET: RequestHandler = async ({ url }) => {
 
 	const result: TravelTimes = {
 		work: await computeWork(originAddr),
-		partner: await computePartner(originAddr),
 		subwayStop: await computeSubwayStop(originAddr, originPoint),
 		park: await computePark(originAddr, originPoint),
 		farmersMarket: await computeFarmersMarket(originAddr, originPoint),
-		fractal: await computeFractal(originAddr),
 		church: await computeChurch(originAddr)
 	};
 	return json(result);
