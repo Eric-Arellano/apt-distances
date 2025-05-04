@@ -2,13 +2,16 @@
 	import Card from './Card.svelte';
 
 	const neighborhoods = [
-		'Upper West Side',
 		'Flatiron',
-		'Hudson Yards',
 		'NoMad',
 		'Gramercy Park',
+		'Midtown Central',
+		'Midtown South',
+		'Hudson Yards',
 		'Chelsea',
-		'Kips Bay'
+		'Kips Bay',
+		"Hell's Kitchen",
+		'Murray Hill'
 	];
 </script>
 

@@ -100,21 +100,33 @@ export const PARKS = [
 	},
 	{
 		name: 'Central Park - Columbus Square',
-		latitude: 0,
+		latitude: 40.768165,
 		longitude: -73.981439,
 		address: '1820 Broadway, New York, NY 10023'
+	},
+	{
+		name: 'Central Park - 7th Ave',
+		latitude: 40.767002,
+		longitude: -73.978958,
+		address: '1820 Broadway, New York, NY 10023'
+	},
+	{
+		name: 'Central Park - 6th Ave',
+		latitude: 40.765833,
+		longitude: -73.976209,
+		address: '1820 Broadway, New York, NY 10023'
+	},
+	{
+		name: 'Central Park - Grand Army Plaza',
+		latitude: 40.764727,
+		longitude: -73.973661,
+		address: 'Grand Army Plaza, New York, NY 10019'
 	},
 	{
 		name: 'Central Park - 65 St',
 		latitude: 40.77166,
 		longitude: -73.979078,
 		address: '50 Central Prk W, New York, NY 10023'
-	},
-	{
-		name: 'Central Park - 69 St',
-		latitude: 40.774229,
-		longitude: -73.977152,
-		address: '88 Central Prk W, New York, NY 10023'
 	},
 	{
 		name: 'Central Park - 72 St',
@@ -217,6 +229,24 @@ export const PARKS = [
 		latitude: 40.798595,
 		longitude: -73.973059,
 		address: '279 Riverside Dr, New York, NY 10025'
+	},
+	{
+		name: 'DeWitt Clinton Park',
+		latitude: 40.768067,
+		longitude: -73.994004,
+		address: '11th Ave. & W 54th St, New York, NY 10019'
+	},
+	{
+		name: 'St. Vartan Park',
+		latitude: 40.745238,
+		longitude: -73.973737,
+		address: '1st Avenue & E 35th St, New York, NY 10016'
+	},
+	{
+		name: 'Bellevue S. Park',
+		latitude: 40.739623,
+		longitude: -73.978258,
+		address: 'Mt. Carmel Pl. & E 27th St, New York, NY 10016'
 	}
 ];
 
@@ -458,5 +488,68 @@ export const SUBWAY_STOPS = [
 		longitude: -73.961509,
 		address: '425 Central Prk W, New York, NY 10025',
 		lines: ['B', 'C']
+	},
+	{
+		name: '47 St - Rockefeller',
+		latitude: 40.758745,
+		longitude: -73.981346,
+		address: '1230 6th Ave, New York, NY 10020',
+		lines: ['B', 'D', 'F', 'M']
+	},
+	{
+		name: 'Grand Central',
+		latitude: 40.75227,
+		longitude: -73.977692,
+		address: '89 E 42nd St, New York, NY 10017',
+		lines: ['S', '4', '5', '6', '7']
+	},
+	{
+		name: 'Lexington Ave - 53 St',
+		latitude: 40.757785,
+		longitude: -73.969393,
+		address: '880 3rd Ave, New York, NY 10022',
+		lines: ['E', 'M', '6']
+	},
+	{
+		name: '5 Ave - 53 St',
+		latitude: 40.760455,
+		longitude: -73.975767,
+		address: '673 5th Ave, New York, NY 10022',
+		lines: ['E', 'M']
+	},
+	{
+		name: '49 St',
+		latitude: 40.760678,
+		longitude: -73.983625,
+		address: '745 7th Ave, New York, NY 10019',
+		lines: ['N', 'R', 'W']
+	},
+	{
+		name: '7 Av',
+		latitude: 40.762895,
+		longitude: -73.982001,
+		address: '200 W 53rd St, New York, NY 10019',
+		lines: ['E', 'B', 'D']
+	},
+	{
+		name: '57 St - 7 Av',
+		latitude: 40.764801,
+		longitude: -73.980415,
+		address: '881 7th Ave, New York, NY 10019',
+		lines: ['N', 'Q', 'R', 'W']
+	},
+	{
+		name: '50 St',
+		latitude: 40.762215,
+		longitude: -73.985947,
+		address: '250 W 50th St, New York, NY 10019',
+		lines: ['C', 'E']
+	},
+	{
+		name: '8 St - NYU',
+		latitude: 40.730546,
+		longitude: -73.992577,
+		address: '750 Broadway, New York, NY 10003',
+		lines: ['R', 'W', '6']
 	}
 ];
