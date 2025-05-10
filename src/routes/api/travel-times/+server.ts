@@ -2,10 +2,16 @@ import { error, json, type RequestHandler } from '@sveltejs/kit';
 
 import type { TravelTimes } from '$lib/types';
 import {
-	computeChurch,
+	computeAstoria,
+	computeDowntownBrooklyn,
 	computeFarmersMarket,
+	computeJacksonHeights,
+	computeJerseyCity,
+	computeMottHaven,
 	computePark,
+	computeParkSlope,
 	computeSubwayStop,
+	computeWilliamsburg,
 	computeWork
 } from '$lib/server/destinations';
 import { USE_MOCK_DATA } from '$lib/server/env';
@@ -29,7 +35,13 @@ export const GET: RequestHandler = async ({ url }) => {
 		subwayStop: await computeSubwayStop(originAddr, originPoint),
 		park: await computePark(originAddr, originPoint),
 		farmersMarket: await computeFarmersMarket(originAddr, originPoint),
-		church: await computeChurch(originAddr)
+		parkSlope: await computeParkSlope(originAddr),
+		williamsburg: await computeWilliamsburg(originAddr),
+		downtownBrooklyn: await computeDowntownBrooklyn(originAddr),
+		jacksonHeights: await computeJacksonHeights(originAddr),
+		astoria: await computeAstoria(originAddr),
+		jerseyCity: await computeJerseyCity(originAddr),
+		mottHaven: await computeMottHaven(originAddr)
 	};
 	return json(result);
 };

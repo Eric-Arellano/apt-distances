@@ -44,7 +44,49 @@ export const MOCK_DATA: TravelTimes = {
 			distanceMiles: 0.8
 		}
 	},
-	church: {
+	parkSlope: {
+		transit: {
+			timeMinutes: 18,
+			type: 'transit',
+			summary: '2'
+		}
+	},
+	williamsburg: {
+		transit: {
+			timeMinutes: 18,
+			type: 'transit',
+			summary: '2'
+		}
+	},
+	downtownBrooklyn: {
+		transit: {
+			timeMinutes: 18,
+			type: 'transit',
+			summary: '2'
+		}
+	},
+	jacksonHeights: {
+		transit: {
+			timeMinutes: 18,
+			type: 'transit',
+			summary: '2'
+		}
+	},
+	astoria: {
+		transit: {
+			timeMinutes: 18,
+			type: 'transit',
+			summary: '2'
+		}
+	},
+	jerseyCity: {
+		transit: {
+			timeMinutes: 18,
+			type: 'transit',
+			summary: '2'
+		}
+	},
+	mottHaven: {
 		transit: {
 			timeMinutes: 18,
 			type: 'transit',
