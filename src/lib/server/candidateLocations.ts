@@ -28,6 +28,12 @@ export const FARMERS_MARKETS = [
 		latitude: 40.782079,
 		longitude: -73.975855,
 		address: '102 W 79th St, New York, NY 10024'
+	},
+	{
+		name: 'Tompkins Square',
+		latitude: 40.726762,
+		longitude: -73.982612,
+		address: '131 Avenue A, New York, NY 10009'
 	}
 ];
 
@@ -247,6 +253,12 @@ export const PARKS = [
 		latitude: 40.739623,
 		longitude: -73.978258,
 		address: 'Mt. Carmel Pl. & E 27th St, New York, NY 10016'
+	},
+	{
+		name: 'Tompkins Square',
+		latitude: 40.726762,
+		longitude: -73.982612,
+		address: '131 Avenue A, New York, NY 10009'
 	}
 ];
 
@@ -551,5 +563,26 @@ export const SUBWAY_STOPS = [
 		longitude: -73.992577,
 		address: '750 Broadway, New York, NY 10003',
 		lines: ['R', 'W', '6']
+	},
+	{
+		name: 'Broadway Lafayette St',
+		latitude: 40.725388,
+		longitude: -73.995892,
+		address: '316 Lafayette St, New York, NY 10012',
+		lines: ['B', 'D', 'F', 'M', '6']
+	},
+	{
+		name: '2 Av',
+		latitude: 40.723395,
+		longitude: -73.990002,
+		address: '137 E Houston St, New York, NY 10002',
+		lines: ['F']
+	},
+	{
+		name: 'W 4 St - Washington Square',
+		latitude: 40.732254,
+		longitude: -74.000385,
+		address: '360 6th Ave, New York, NY 10011',
+		lines: ['A', 'B', 'C', 'D', 'E', 'F', 'M']
 	}
 ];
