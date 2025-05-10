@@ -5,8 +5,8 @@
 
 	let { transit }: TravelTimes['mottHaven'] = $props();
 
-	const idealMinutes = 45;
-	const maxMinutes = 60;
+	const idealMinutes = 40;
+	const maxMinutes = 55;
 </script>
 
 <DestinationCard
