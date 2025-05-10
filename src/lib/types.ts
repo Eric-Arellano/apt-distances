@@ -39,7 +39,25 @@ export interface TravelTimes {
 		};
 		walk: ActiveTransportRoute;
 	};
-	church: {
+	parkSlope: {
+		transit: TransitRoute;
+	};
+	williamsburg: {
+		transit: TransitRoute;
+	};
+	downtownBrooklyn: {
+		transit: TransitRoute;
+	};
+	jacksonHeights: {
+		transit: TransitRoute;
+	};
+	astoria: {
+		transit: TransitRoute;
+	};
+	jerseyCity: {
+		transit: TransitRoute;
+	};
+	mottHaven: {
 		transit: TransitRoute;
 	};
 }

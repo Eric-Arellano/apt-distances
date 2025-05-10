@@ -17,15 +17,6 @@ export async function computeWork(origin: string): Promise<TravelTimes['work']> 
 	};
 }
 
-export async function computeChurch(origin: string): Promise<TravelTimes['partner']> {
-	const transit = await computeTransitRoute({
-		origin,
-		dest: '119 Pierrepont, Brooklyn, NY 11201',
-		targetDeparture: { day: DayOfWeek.Sunday, hour: 10, minute: 0 }
-	});
-	return { transit };
-}
-
 export async function computeFarmersMarket(
 	originAddr: string,
 	originPoint: CoordinatePoint
@@ -63,4 +54,71 @@ export async function computeSubwayStop(
 		mode: 'WALK'
 	});
 	return { walk, closest: { name: closest.name, lines: closest.lines } };
+}
+
+export async function computeParkSlope(origin: string): Promise<TravelTimes['parkSlope]']> {
+	const transit = await computeTransitRoute({
+		origin,
+		dest: 'Grand Army Plz, Brooklyn, NY 11238',
+		targetDeparture: { day: DayOfWeek.Saturday, hour: 19, minute: 0 }
+	});
+	return { transit };
+}
+
+export async function computeWilliamsburg(origin: string): Promise<TravelTimes['williamsburg']> {
+	const transit = await computeTransitRoute({
+		origin,
+		dest: '551 Driggs Ave, Brooklyn, NY 11211',
+		targetDeparture: { day: DayOfWeek.Saturday, hour: 19, minute: 0 }
+	});
+	return { transit };
+}
+
+export async function computeDowntownBrooklyn(
+	origin: string
+): Promise<TravelTimes['downtownBrooklyn']> {
+	const transit = await computeTransitRoute({
+		origin,
+		dest: '409 Fulton St, Brooklyn, NY 11201',
+		targetDeparture: { day: DayOfWeek.Saturday, hour: 19, minute: 0 }
+	});
+	return { transit };
+}
+
+export async function computeJacksonHeights(
+	origin: string
+): Promise<TravelTimes['jacksonHeights']> {
+	const transit = await computeTransitRoute({
+		origin,
+		dest: '74-01 Roosevelt Ave, Flushing, NY 11372',
+		targetDeparture: { day: DayOfWeek.Saturday, hour: 19, minute: 0 }
+	});
+	return { transit };
+}
+
+export async function computeAstoria(origin: string): Promise<TravelTimes['astoria']> {
+	const transit = await computeTransitRoute({
+		origin,
+		dest: '31-02 Astoria Blvd, Astoria, NY 11102',
+		targetDeparture: { day: DayOfWeek.Saturday, hour: 19, minute: 0 }
+	});
+	return { transit };
+}
+
+export async function computeJerseyCity(origin: string): Promise<TravelTimes['jerseyCity']> {
+	const transit = await computeTransitRoute({
+		origin,
+		dest: '90 Christopher Columbus Dr, Jersey City, NJ 07302',
+		targetDeparture: { day: DayOfWeek.Saturday, hour: 19, minute: 0 }
+	});
+	return { transit };
+}
+
+export async function computeMottHaven(origin: string): Promise<TravelTimes['mottHaven']> {
+	const transit = await computeTransitRoute({
+		origin,
+		dest: '500 Grand Concourse, Bronx, NY 10451',
+		targetDeparture: { day: DayOfWeek.Saturday, hour: 19, minute: 0 }
+	});
+	return { transit };
 }
