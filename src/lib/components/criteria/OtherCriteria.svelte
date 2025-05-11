@@ -13,10 +13,10 @@
 						<li>Queen bed</li>
 						<li>Desk</li>
 						<li>Couch</li>
+						<li>Small kitchen table</li>
 						<li>Wall-mounted TV</li>
 						<li>Cat tree and litter box</li>
 						<li>Folding bike</li>
-						<li>If the kitchen is small, space for an island</li>
 					</ul>
 				</li>
 				<li>The fridge is bigger than a mini fridge</li>
